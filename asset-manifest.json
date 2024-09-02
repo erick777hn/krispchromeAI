@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.css",
+    "main.js": "/static/js/main.js",
+    "index.html": "/index.html",
+    "static/media/app.scss": "/static/media/GTWalsheimPro-Regular.6efecee6.woff2",
+    "static/media/error-state.svg": "/static/media/error-state.c60e0b2a.svg",
+    "static/media/error-wifi.svg": "/static/media/error-wifi.16354612.svg",
+    "static/media/logo.svg": "/static/media/logo.e30f360e.svg",
+    "static/media/unsupported.svg": "/static/media/unsupported.63b1c8e7.svg"
+  },
+  "entrypoints": [
+    "static/css/main.css",
+    "static/js/main.js"
+  ]
+}

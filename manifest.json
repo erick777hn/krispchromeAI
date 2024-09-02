@@ -1,0 +1,55 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "name": "Krisp for Chrome",
+  "version": "1.1.7",
+  "manifest_version": 2,
+  "description": "Remove background noise during calls with Krisp for Chrome",
+  "icons": {
+    "128": "images/main_ico.png"
+  },
+  "background": {
+    "scripts": ["/static/js/background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": {
+      "32": "images/ico.png"
+    },
+    "default_title": "Krisp",
+    "default_popup": "index.html"
+  },
+  "content_scripts" : [
+    {
+      "js": [ "/static/js/contentFrame.js" ],
+      "matches": ["*://*.webex.com/*"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "js": [ "/static/js/content.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "exclude_matches": [ "*://*.webex.com/*" ],
+      "run_at": "document_start",
+      "all_frames": false,
+      "match_about_blank": true
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "http://*/*",
+    "https://*/*",
+    "storage",
+    "system.cpu"
+  ],
+  "web_accessible_resources": [
+    "/static/js/patch.js",
+    "/wasm/wasm-audio-helper.js",
+    "/wasm/dsp.wasmmodule.js",
+    "/wasm/krisp-processor.js",
+    "/models/small_8k.thw",
+    "/models/small_16k.thw"
+  ],
+  "content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'"
+}
